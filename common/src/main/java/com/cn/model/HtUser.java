@@ -49,6 +49,7 @@ public class HtUser implements Serializable {
      */
     private String moble;
 
+
     /**
      * 部门
      */
