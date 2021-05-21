@@ -1,0 +1,37 @@
+server:
+  port: 3001
+spring:
+  application:
+    name: user-client
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  datasource:
+    #配置文件:dev(开发环境)
+    url: jdbc:mysql://39.108.85.171:3306/springcloud?useUnicode=true&characterEncoding=UTF8&serverTimezone=Asia/Shanghai&useSSL=false&allowMultiQueries=true
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    timeout: 10000
+jedis:
+  host: 127.0.0.1
+  password:
+  port: 6379
+  timeout: 2000
+  maxTotal: 15 # 最大连接数
+  maxIdle: 10 # 最大空闲连接
+  minIdle: 5 # 最小空闲连接
+  maxWaitMillis: 10000 # 获取连接最大等待时间
+  testOnBorrow: true # 获取连接时检测是否可用
+feign:
+  hystrix:
+    enabled: true     #开启Feign的熔断功能（Feign集成Hystrix默认是不开启熔断功能的，需要手动开启）
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:mappers/*.xml
