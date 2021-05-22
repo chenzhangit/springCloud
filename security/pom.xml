@@ -3,7 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <groupId>com.cn.cloud</groupId>
+        <groupId>com.cn</groupId>
         <artifactId>springCloud</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
@@ -18,7 +18,7 @@
         <dependency>
             <groupId>com.cn</groupId>
             <artifactId>common</artifactId>
-            <version>1.1.0</version>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <!-- naces客户端 -->
         <dependency>
