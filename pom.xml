@@ -37,6 +37,7 @@
         <swagger2.version>2.9.2</swagger2.version>
         <fastjson.version>1.2.62</fastjson.version>
         <jedis.version>2.9.0</jedis.version>
+        <generator.version>3.4.0</generator.version>
     </properties>
 
     <dependencyManagement>
@@ -108,6 +109,12 @@
                 <groupId>redis.clients</groupId>
                 <artifactId>jedis</artifactId>
                 <version>${jedis.version}</version>
+            </dependency>
+            <!--代码生成器依赖-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${generator.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
