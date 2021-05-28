@@ -32,12 +32,12 @@
         <spring-cloud-alibaba.version>2.2.3.RELEASE</spring-cloud-alibaba.version>
         <mysql.version>8.0.13</mysql.version>
         <mybatis-plus.starter.version>3.4.0</mybatis-plus.starter.version>
+        <generator.version>3.4.0</generator.version>
         <yijin.latest.version>1.0.0-SNAPSHOT</yijin.latest.version>
         <fastDFS.client.version>1.26.1-RELEASE</fastDFS.client.version>
         <swagger2.version>2.9.2</swagger2.version>
         <fastjson.version>1.2.62</fastjson.version>
         <jedis.version>2.9.0</jedis.version>
-        <generator.version>3.4.0</generator.version>
     </properties>
 
     <dependencyManagement>
@@ -68,6 +68,12 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus.starter.version}</version>
+            </dependency>
+            <!--代码生成器依赖-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${generator.version}</version>
             </dependency>
             <!--FastDFS客户端-->
             <dependency>
@@ -110,12 +116,7 @@
                 <artifactId>jedis</artifactId>
                 <version>${jedis.version}</version>
             </dependency>
-            <!--代码生成器依赖-->
-            <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-generator</artifactId>
-                <version>${generator.version}</version>
-            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

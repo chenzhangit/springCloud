@@ -20,17 +20,17 @@ public class MysqlGenerator {
 
     private final DbType dbType = DbType.MYSQL;
     //数据库连结信息
-    private final String dbUrl = "jdbc:mysql://39.108.85.171:3306/qy_dev?useUnicode=true&characterEncoding=UTF-8&&useSSL=false";
+    private final String dbUrl = "jdbc:mysql://120.79.94.226:3306/springcloud?useUnicode=true&characterEncoding=UTF-8&&useSSL=false";
 
     private final String driver = "com.mysql.cj.jdbc.Driver";
 
     private final String userName = "root";
 
-    private final String password = "123456";
+    private final String password = "12345678";
     //项目名
-    private final String projectName = "qy-project";
+    private final String projectName = "springCloud";
     //指定包名
-    private final String packageName = "com.zhijiaoqiao.qy";
+    private final String packageName = "com.cn";
     //controller基础类
 //    private final String superControllerClass = packageName + ".controller";
     //entity基础类
@@ -38,10 +38,10 @@ public class MysqlGenerator {
     //模块名 如果有模块名，则需在模块名前加. 例：.log
     private final String moduleName = "";
     //作者名
-    private final String author = "yhj";
+    private final String author = "cz";
     //指定生成的表名
 
-    private final String[] tableNames = new String[]{"tb_limit_conditions"};
+    private final String[] tableNames = new String[]{"tb_menu"};
 
     @Test
     public void generateCode() {
@@ -147,7 +147,6 @@ public class MysqlGenerator {
                 .setIdType(IdType.AUTO)
                 //设置输出路径
                 .setOutputDir(getOutputDir(projectName))
-
                 .setFileOverride(true);
         if (!serviceNameStartWithI) {
             //设置service名

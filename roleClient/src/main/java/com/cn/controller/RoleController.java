@@ -1,7 +1,9 @@
 package com.cn.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.cn.model.TbRole;
+import com.cn.entity.Role;
+import com.cn.result.ResultVo;
+import com.cn.result.ResultVoUtil;
 import com.cn.service.RoleService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -21,8 +23,9 @@ public class RoleController {
 
     @ApiOperation(value = "查询所有角色接口",notes = "请求参数{}")
     @GetMapping("/list")
-    public IPage<TbRole> list(@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "10") int size){
-        return roleService.list(page,size);
+    public ResultVo list(@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "10") int size){
+        IPage<Role> list = roleService.list(page, size);
+        return ResultVoUtil.success(list);
     }
 
 }
