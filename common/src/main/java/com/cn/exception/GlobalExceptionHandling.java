@@ -33,7 +33,7 @@ public class GlobalExceptionHandling {
      */
     @ExceptionHandler(value = CustomException.class)
     public ResultVo processException(CustomException e) {
-        log.error("位置:{} -> 错误信息:{}", e.getMethod() ,e.getLocalizedMessage());
+        //log.error("位置:{} -> 错误信息:{}", e.getMethod() ,e.getLocalizedMessage());
         return ResultVoUtil.error(Objects.requireNonNull(ResultEnum.getByCode(e.getCode())));
     }
 
@@ -90,6 +90,7 @@ public class GlobalExceptionHandling {
     @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler(Exception.class)
     public ResultVo exception(Exception e) {
+        log.error("错误信息:{}", e.getLocalizedMessage());
         e.printStackTrace();
         return ResultVoUtil.error(ResultEnum.UNKNOWN_EXCEPTION);
     }

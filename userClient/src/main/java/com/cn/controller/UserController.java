@@ -1,6 +1,9 @@
 package com.cn.controller;
 
+import com.cn.entity.User;
 import com.cn.feignclient.RoleFeignClient;
+import com.cn.result.ResultVo;
+import com.cn.result.ResultVoUtil;
 import com.cn.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -30,15 +33,21 @@ public class UserController {
     private JedisPool jedisPool;
 
     @RequestMapping("/getRole")
-    public String getRole(){
+    public ResultVo getRole(){
         String list = roleFeignClient.list();
-        return list;
+        return ResultVoUtil.success(list);
     }
 
     @ApiOperation(value = "用户登录接口",notes = "请求参数{userName 用户名 | password  登录密码}")
     @GetMapping("/login")
-    public String login(String userName,String password){
-        return userService.login(userName,password);
+    public ResultVo login(String userName,String password){
+        return ResultVoUtil.success(userService.login(userName,password));
+    }
+
+    @ApiOperation(value = "根据用户名查询用户信息",notes = "请求参数{userName 用户名 | password  登录密码}")
+    @GetMapping("/getUserext")
+    public User getUserext(String userName){
+        return null;
     }
 
     @GetMapping("/redisTest")

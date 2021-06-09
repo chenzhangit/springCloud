@@ -25,3 +25,9 @@ spring:
           - Path=/user/**
         filters:
           - StripPrefix=1
+      - id: security-client
+        uri: lb://security-client
+        predicates:
+          - Path=/security/**
+        filters:
+          - StripPrefix=1

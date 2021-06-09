@@ -9,6 +9,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.http.server.reactive.ServerHttpResponse;
+import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
@@ -20,7 +21,7 @@ import java.util.Objects;
  * 网关过滤请求，验证token
  */
 
-
+@Component
 public class AuthGlobalFilter implements GlobalFilter, Ordered {
 
     // 排除过滤的 uri 地址

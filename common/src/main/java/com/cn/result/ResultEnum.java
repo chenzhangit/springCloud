@@ -56,6 +56,27 @@ public enum ResultEnum {
      * 请求方式不支持
      */
     REQ_METHOD_NOT_SUPPORT(110,"请求方式不支持"),
+
+    /**
+     * 申请令牌失败
+     */
+    AUTH_LOGIN_APPLYTOKEN_FAIL(120,"申请令牌失败"),
+
+    /**
+     * 存储令牌失败
+     */
+    AUTH_LOGIN_TOKEN_SAVEFAIL(130,"存储令牌失败"),
+
+    /**
+     * 存储令牌失败
+     */
+    AUTH_ACCOUNT_NOTEXISTS(140,"用户不存在"),
+
+    /**
+     * 坏的凭证
+     */
+    AUTH_CREDENTIAL_ERROR(150,"坏的凭证")
+
     ;
 
     private Integer code;

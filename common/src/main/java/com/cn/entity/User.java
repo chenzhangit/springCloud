@@ -4,10 +4,15 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 
 /**
@@ -21,7 +26,9 @@ import java.util.Date;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("user")
-public class User implements Serializable {
+@NoArgsConstructor
+@AllArgsConstructor
+public class User implements Serializable{
 
     private static final long serialVersionUID = 1L;
 
@@ -38,6 +45,17 @@ public class User implements Serializable {
     private String loginCode;
 
     /**
+     * 手机号
+     */
+    private String mobile;
+
+    /**
+     * 创建时间
+     */
+    @TableField(value = "create_time")
+    private Date createTime;
+
+    /**
      * 登录密码
      */
     private String password;
@@ -48,15 +66,13 @@ public class User implements Serializable {
     @TableField(value = "user_name")
     private String userName;
 
-    /**
-     * 手机号
-     */
-    private String mobile;
+    //权限
+    Collection<? extends GrantedAuthority> authorities;
 
-    /**
-     * 创建时间
-     */
-    @TableField(value = "create_time")
-    private Date createTime;
+    public User(String password, String userName, Collection<? extends GrantedAuthority> authorities) {
+        this.password = password;
+        this.userName = userName;
+        this.authorities = authorities;
+    }
 
 }
