@@ -41,7 +41,7 @@ public class MysqlGenerator {
     private final String author = "cz";
     //指定生成的表名
 
-    private final String[] tableNames = new String[]{"tb_menu"};
+    private final String[] tableNames = new String[]{"menu","role","user"};
 
     @Test
     public void generateCode() {
@@ -119,8 +119,8 @@ public class MysqlGenerator {
 
         return new PackageConfig()
                 .setParent(packageName)
-                .setXml("mapper.xml" + moduleName)
-                .setMapper("mapper" + moduleName)
+                .setXml("com.cn.mappers.xml" + moduleName)
+                .setMapper("com.cn.mappers" + moduleName)
                 .setController("controller" + moduleName)
                 .setEntity("entity" + moduleName);
     }

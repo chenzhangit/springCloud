@@ -17,24 +17,55 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class Role implements Serializable {
+public class Menu implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private String id;
 
-    private String roleName;
+    /**
+     * 菜单编码
+     */
+    private String code;
 
-    private String roleCode;
+    /**
+     * 父菜单ID
+     */
+    private String pId;
 
-    private String description;
+    /**
+     * 名称
+     */
+    private String menuName;
+
+    /**
+     * 请求地址
+     */
+    private String url;
+
+    /**
+     * 是否是菜单
+     */
+    private String isMenu;
+
+    /**
+     * 菜单层级
+     */
+    private Integer level;
+
+    /**
+     * 菜单排序
+     */
+    private Integer sort;
+
+    private String status;
+
+    private String icon;
 
     private LocalDateTime createTime;
 
     private LocalDateTime updateTime;
-
-    private String status;
 
 
 }

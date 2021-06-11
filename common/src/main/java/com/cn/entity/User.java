@@ -1,19 +1,11 @@
 package com.cn.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
+import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.AllArgsConstructor;
+import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
-import java.io.Serializable;
-import java.util.Collection;
-import java.util.Date;
 
 /**
  * <p>
@@ -21,58 +13,50 @@ import java.util.Date;
  * </p>
  *
  * @author cz
- * @since 2021-05-28
+ * @since 2021-06-10
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@TableName("user")
-@NoArgsConstructor
-@AllArgsConstructor
-public class User implements Serializable{
+public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    /**
-     * 主键
-     */
     @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
+    private String id;
 
-    /**
-     * 登录账号
-     */
-    @TableField(value = "login_code")
-    private String loginCode;
+    private String username;
 
-    /**
-     * 手机号
-     */
-    private String mobile;
-
-    /**
-     * 创建时间
-     */
-    @TableField(value = "create_time")
-    private Date createTime;
-
-    /**
-     * 登录密码
-     */
     private String password;
 
+    private String salt;
+
+    private String name;
+
     /**
-     * 用户姓名
+     * 头像
      */
-    @TableField(value = "user_name")
-    private String userName;
+    private String userpic;
 
-    //权限
-    Collection<? extends GrantedAuthority> authorities;
+    private String utype;
 
-    public User(String password, String userName, Collection<? extends GrantedAuthority> authorities) {
-        this.password = password;
-        this.userName = userName;
-        this.authorities = authorities;
-    }
+    private LocalDateTime birthday;
+
+    private String sex;
+
+    private String email;
+
+    private String phone;
+
+    private String qq;
+
+    /**
+     * 用户状态
+     */
+    private String status;
+
+    private LocalDateTime createTime;
+
+    private LocalDateTime updateTime;
+
 
 }

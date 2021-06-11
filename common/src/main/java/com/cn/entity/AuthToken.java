@@ -3,6 +3,9 @@ package com.cn.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+import java.io.Serializable;
 
 /**
  * @auther
@@ -10,9 +13,9 @@ import lombok.NoArgsConstructor;
  */
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class AuthToken {
+@ToString
+public class AuthToken implements Serializable {
 
     private String accessToken;
 

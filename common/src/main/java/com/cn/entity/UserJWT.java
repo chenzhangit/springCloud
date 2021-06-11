@@ -3,6 +3,7 @@ package com.cn.entity;
 import lombok.Data;
 import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
@@ -13,16 +14,14 @@ import java.util.Collection;
  */
 @Data
 @ToString
-public class UserJWT extends User{
+public class UserJWT extends User {
 
     private String id;
     private String name;
     private String userpic;
     private String utype;
-    private String companyId;
 
     public UserJWT(String username, String password, Collection<? extends GrantedAuthority> authorities) {
-        super(password,username,authorities);
+        super(username, password, authorities);
     }
-
 }
