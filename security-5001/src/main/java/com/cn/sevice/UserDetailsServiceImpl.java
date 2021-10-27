@@ -3,7 +3,6 @@ package com.cn.sevice;
 import com.cn.client.UserClient;
 import com.cn.entity.Menu;
 import com.cn.entity.UserExt;
-import com.cn.entity.UserJWT;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;

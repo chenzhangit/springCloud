@@ -1,0 +1,7 @@
+server:
+  port: 4001
+spring:
+  profiles:
+    active: common
+  application:
+    name: role-client                   #项目名称

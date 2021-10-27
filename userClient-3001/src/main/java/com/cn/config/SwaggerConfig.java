@@ -21,7 +21,7 @@ public class SwaggerConfig {
                 .apis(RequestHandlerSelectors.basePackage("com.cn.controller"))
                 .paths(PathSelectors.any())
                 .build().apiInfo(new ApiInfoBuilder()
-                        .title("角色管理相关API")
+                        .title("用户管理相关API")
                         .description("API接口描述")
                         .version("1.0")
                         .termsOfServiceUrl("http://localhost:3001/")

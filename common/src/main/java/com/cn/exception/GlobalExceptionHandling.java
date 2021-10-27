@@ -19,7 +19,7 @@ import java.util.Objects;
 
 
 /**
- * @author 黄训辉
+ * @author
  * Date: Created in 2018/3/22 11:02
  * Utils: Intellij Idea
  * Description: 全局异常处理
@@ -33,7 +33,7 @@ public class GlobalExceptionHandling {
      */
     @ExceptionHandler(value = CustomException.class)
     public ResultVo processException(CustomException e) {
-        //log.error("位置:{} -> 错误信息:{}", e.getMethod() ,e.getLocalizedMessage());
+        log.error("错误信息{}",e.getLocalizedMessage());
         return ResultVoUtil.error(Objects.requireNonNull(ResultEnum.getByCode(e.getCode())));
     }
 
@@ -94,4 +94,5 @@ public class GlobalExceptionHandling {
         e.printStackTrace();
         return ResultVoUtil.error(ResultEnum.UNKNOWN_EXCEPTION);
     }
+
 }

@@ -1,0 +1,45 @@
+spring:
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+  datasource:
+    #配置文件:dev(开发环境)
+    url: jdbc:mysql://120.79.94.226:3306/springcloud?characterEncoding=UTF8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowMultiQueries=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: czh520134
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jackson:                                      #后端返回前端时间格式时间戳转时间配置
+    date-format: yyyy-MM-dd HH:mm
+    time-zone: GMT+8
+    serialization:
+      write-dates-as-timestamps: false
+  redis:
+    database: 0
+    host: 120.79.94.226
+    port: 6479                        #默认是6379，这里是修改过的
+    timeout: 10000
+    password: 12345678
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: -1
+        min-idle: 0
+      timeout: 0
+  rabbitmq:                             #rabbitmq相关依赖
+    host: 120.79.94.226
+    port: 5672
+    username: mq
+    password: 123456
+    template:
+      receive-timeout: 30000
+      reply-timeout: 30000
+      retry:
+        enabled: false
+feign:
+  hystrix:
+    enabled: true     #开启Feign的熔断功能（Feign集成Hystrix默认是不开启熔断功能的，需要手动开启）
+mybatis-plus:         #开启控制台输出sql功能
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:mappers/*.xml
