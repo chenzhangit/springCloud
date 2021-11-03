@@ -1,13 +1,7 @@
 spring:
   cloud:
     nacos:
-      server-addr: 120.79.94.226:8848
-  datasource:
-    #配置文件:dev(开发环境)
-    url: jdbc:mysql://120.79.94.226:3306/springcloud?characterEncoding=UTF8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowMultiQueries=true&serverTimezone=Asia/Shanghai
-    username: root
-    password: czh520134
-    driver-class-name: com.mysql.cj.jdbc.Driver
+      server-addr: 120.25.233.170:8848
   jackson:                                      #后端返回前端时间格式时间戳转时间配置
     date-format: yyyy-MM-dd HH:mm
     time-zone: GMT+8
@@ -15,10 +9,10 @@ spring:
       write-dates-as-timestamps: false
   redis:
     database: 0
-    host: 120.79.94.226
-    port: 6479                        #默认是6379，这里是修改过的，因为服务器被攻击端口
+    host: 120.25.233.170
+    port: 6379                        #默认是6379，这里是修改过的，因为服务器被攻击端口
     timeout: 10000
-    password: 12345678
+    password: czh520134
     jedis:
       pool:
         max-active: 8
@@ -27,7 +21,7 @@ spring:
         min-idle: 0
       timeout: 0
   rabbitmq:                             #rabbitmq相关依赖
-    host: 120.79.94.226
+    host: 120.25.233.170
     port: 5672
     username: mq
     password: 123456

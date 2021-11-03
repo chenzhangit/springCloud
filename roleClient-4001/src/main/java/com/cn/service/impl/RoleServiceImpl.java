@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@Transactional
 public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements RoleService {
 
     @Autowired
@@ -25,6 +24,11 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
         Page<Role> rolePage = new Page<>(page,size);
         IPage<Role> roleIPage = roleMapper.selectPage(rolePage, tbRoleLambdaQueryWrapper);
         return roleIPage;
+    }
+
+    @Override
+    public void delRole(Integer id){
+        roleMapper.deleteById(id);
     }
 
 }

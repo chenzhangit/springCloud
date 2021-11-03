@@ -5,4 +5,32 @@ spring:
     active: common
   application:
     name: user-client
-
+  datasource:
+    #配置文件:dev(开发环境)
+    url: jdbc:mysql://120.25.233.170:3306/springcloud?characterEncoding=UTF8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowMultiQueries=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: czh520134
+    driver-class-name: com.mysql.cj.jdbc.Driver
+seata:
+  enabled: true
+  application-id: ${spring.application.name} #微服务应用名称
+  tx-service-group: my_test_tx_group    #此处配置自定义的seata事务分组名称,config.txt中配置的service.vgroupMapping.my_test_tx_group=default
+  enable-auto-data-source-proxy: true    #开启数据库代理
+  registry:
+    type: nacos
+    nacos:
+      application: seata-server
+      server-addr: 120.25.233.170:8848 #注册中心nacos地址
+      group: SEATA_GROUP #分组名 对应服务器端配置
+      cluster: default #默认集群名
+  config:
+    type: nacos
+    nacos:
+      server-addr: 120.25.233.170:8848 #配置中心nacos地址
+      group: SEATA_GROUP #分组名 对应服务器端配置
+      namespace: 33811531-4402-4818-a263-addac32032ea  #命名空间 对应nacos中配置中心seata
+      username: "nacos"
+      password: "nacos"
+  service:
+    vgroup-mapping:
+      my_test_tx_group: default #事务分组

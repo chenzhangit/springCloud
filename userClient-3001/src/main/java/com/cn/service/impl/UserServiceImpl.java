@@ -5,19 +5,21 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.cn.entity.Menu;
 import com.cn.entity.User;
 import com.cn.entity.UserExt;
+import com.cn.feignclient.RoleFeignClient;
 import com.cn.mapper.UserMapper;
 import com.cn.service.UserService;
 import com.cn.util.RedisUtils;
+import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 
 @Service
-@Transactional
 public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements UserService {
 
     @Autowired
@@ -25,6 +27,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements Use
 
     @Autowired
     private RedisUtils redisUtils;
+
+    @Resource
+    private RoleFeignClient roleFeignClient;
 
     @Override
     public UserExt getUserext(String userName) {
@@ -54,10 +59,14 @@ public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements Use
     }
 
     @Override
+    @GlobalTransactional
     public void delUser(Integer id) {
         userMapper.deleteById(id);
+        roleFeignClient.delRole(1);
+
+        int num = 1/0;
         //将redis的数据删除
-        redisUtils.del("userList");
+        //redisUtils.del("userList");
     }
 
 }

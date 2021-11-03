@@ -80,6 +80,7 @@ public class GlobalExceptionHandling {
      */
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
     public ResultVo httpReqMethodNotSupported(HttpRequestMethodNotSupportedException e) {
+        e.printStackTrace();
         log.error("错误信息:{}", e.getLocalizedMessage());
         return ResultVoUtil.error(ResultEnum.REQ_METHOD_NOT_SUPPORT);
     }

@@ -40,6 +40,8 @@
         <jedis.version>3.1.0</jedis.version>
         <okhttp.version>3.9.1</okhttp.version>
         <jackson.version>2.9.0</jackson.version>
+        <seata.version>2.2.0.RELEASE</seata.version>
+        <seata-io.version>1.4.0</seata-io.version>
     </properties>
 
     <dependencyManagement>
@@ -129,6 +131,23 @@
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-annotations</artifactId>
                 <version>${jackson.version}</version>
+            </dependency>
+            <!-- 分布式seata-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-seata</artifactId>
+                <version>${seata.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>io.seata</groupId>
+                        <artifactId>seata-spring-boot-starter</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>io.seata</groupId>
+                <artifactId>seata-spring-boot-starter</artifactId>
+                <version>${seata-io.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

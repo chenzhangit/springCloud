@@ -9,4 +9,6 @@ public interface RoleService extends IService<Role> {
 
     IPage<Role> listPage(int page, int size);
 
+    void delRole(Integer id);
+
 }

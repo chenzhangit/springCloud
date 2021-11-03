@@ -11,10 +11,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -28,6 +25,13 @@ public class RoleController {
 
     @Resource
     private MsgProducer msgProducer;
+
+    @ApiOperation(value = "删除角色")
+    @GetMapping("/delRole")
+    public ResultVo delRole(Integer id){
+        roleService.delRole(id);
+        return ResultVoUtil.success();
+    }
 
     @ApiOperation(value = "角色列表分页",notes = "请求参数{}")
     @GetMapping("/pageList")
